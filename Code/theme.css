@@ -1,0 +1,60 @@
+body {
+  font: "Garamond";
+  color: white;
+  font-size: 14px/20px;
+  background: #5BC8AF;
+}
+
+.button {
+  font: "Garamond";
+  color: white;
+  font-size: 14px/20px;
+  background: #F18D9E;
+  height: 50px;
+  width: 150px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+
+.button:hover {
+  background: #F18D7A;
+}
+
+.button:focus {
+  background: #F18D7A;
+}
+
+.input {
+  height:40px;
+  width: 500px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  border-radius: 2px;
+  border: none;
+}
+
+.input.middle:focus {
+  outline: none;
+}
+
+.send {
+  background: #F18D9E;
+  height: 42px;
+  width: 100px;
+  position:absolute;
+  bottom:0;
+  right:0;
+  outline: none;
+  border-radius: 2px;
+  border: none;
+}
+
+.send:focus {
+  background: #F18D7A;
+}
+
+.send:hover {
+  background: #F18D7A;
+}
