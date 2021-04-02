@@ -3,3 +3,4 @@ node_modules/
 release-builds
 [Bb]in/
 Code/.ipynb_checkpoints
+Code/__pycache__
