@@ -9,23 +9,26 @@ def chatting():
     chatWindow.title("Chatbot")
     chatWindow["background"] = "#5BC8AF"
 
-    bot_ele = Text(chatWindow, fg="red", bg="white", width=100)
+    bot_ele = Text(chatWindow, fg="black", bg="#5BC8AF", width=100, height=20, font=(16))
     bot_ele.insert("1.0", "Hi there! You are now interacting with a chatbot.\n")
     bot_ele.insert("2.0", "Enter a number based on what you want to do:\n")
     bot_ele.insert("3.0", "1. Chat with the bot\n")
     bot_ele.insert("4.0", "2. Analyze the sentiment and detect the language of the text\n")
     bot_ele.pack()
 
-    input_ele = Entry(chatWindow, fg="red", bg="#5BC8AF", width=100)
+    input_ele = Entry(chatWindow, fg="black", bg="white", width=100)
     input_ele.pack()
 
     check = 1
 
+    ele = Label(chatWindow, text="", width=100, height=3, bg="#5BC8AF")
+    ele.pack()
+
     ele = Button(text="Send",
         width=5,
         height=2,
-        bg="black",
-        fg="white",
+        highlightbackground="black",
+        fg="#F18D9E",
         command = lambda: interact(bot_ele, input_ele, check))
     ele.pack()
 
@@ -64,14 +67,14 @@ mainWindow = Tk()
 mainWindow.geometry("500x500")
 mainWindow.title("Chatbot")
 mainWindow["background"] = "#5BC8AF"
-ele = Label(mainWindow, text="Welcome to the chatbot!")
+ele = Label(mainWindow, text="Welcome to the chatbot!", width=100, height=13, bg="#5BC8AF")
 ele.pack()
 
 ele = Button(text="Start Chatting",
     width=20,
     height=2,
     bg="#F18D9E",
-    fg="white",
+    fg="#F18D9E",
     command=closeWindow)
 ele.pack()
 mainWindow.mainloop()
