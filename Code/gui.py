@@ -1,5 +1,5 @@
 from tkinter import *
-from gui import *
+from chatbot import *
 
 
 
@@ -19,8 +19,6 @@ def chatting():
     input_ele = Entry(chatWindow, fg="black", bg="white", width=100)
     input_ele.pack()
 
-    check = 1
-
     ele = Label(chatWindow, text="", width=100, height=3, bg="#5BC8AF")
     ele.pack()
 
@@ -29,12 +27,13 @@ def chatting():
         height=2,
         highlightbackground="black",
         fg="#F18D9E",
-        command = lambda: interact(bot_ele, input_ele, check))
+        command = lambda: interact(bot_ele, input_ele))
     ele.pack()
 
     chatWindow.mainloop()
 
-def interact(bot_ele, input_ele, check):
+def interact(bot_ele, input_ele):
+    global check
     print("Hello")
     response = input_ele.get()
     print(response)
@@ -48,6 +47,18 @@ def interact(bot_ele, input_ele, check):
             bot_ele.insert("1.0", "I can answer any questions you may have about machine intelligence.\nType in your question. If want to exit, type bye.\n")
             bot_ele.delete("3.0", END)
             bot_ele.delete("4.0", END)
+            check += 1
+        elif choice == "2":
+            bot_ele.insert("1.0", "Enter some text to be analyzed")
+            bot_ele.delete("2.0", END)
+            bot_ele.delete("3.0", END)
+            bot_ele.delete("4.0", END)
+            check += 1
+        else:
+            bot_ele.insert("1.0", "Invalid choice, enter again")
+            bot_ele.delete("2.0", END)
+            bot_ele.delete("3.0", END)
+            bot_ele.delete("4.0", END)
     else:
         received = bot(choice, response)
         bot_ele.delete("1.0", END)
@@ -55,7 +66,6 @@ def interact(bot_ele, input_ele, check):
         bot_ele.insert("1.0", received)
 
     input_ele.delete(0, END)
-    check += 1
 
 
 def closeWindow():
@@ -69,6 +79,7 @@ mainWindow.title("Chatbot")
 mainWindow["background"] = "#5BC8AF"
 ele = Label(mainWindow, text="Welcome to the chatbot!", width=100, height=13, bg="#5BC8AF")
 ele.pack()
+check = 1
 
 ele = Button(text="Start Chatting",
     width=20,
