@@ -70,8 +70,7 @@ def get_language(text):
     processed_text = TextBlob(text)
     return processed_text.detect_language()
 
-if choice == 1:
-    print("I can answer any questions you may have about machine intelligence. Type in your question. If want to exit, type bye.\n")
+
 
 def bot(choice, input_text):
     exit_status = False
@@ -79,6 +78,7 @@ def bot(choice, input_text):
         input_text = input_text.lower()
         if input_text != 'bye':
             if choice == 1:
+                print("I can answer any questions you may have about machine intelligence. Type in your question. If want to exit, type bye.\n")
                 if input_text in user_greetings:
                     return(random.choice(bot_greetings))
                 else:
