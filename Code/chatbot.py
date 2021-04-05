@@ -17,7 +17,8 @@ def setup():
     else:
         ssl._create_default_https_context = _create_unverified_https_context
 
-    f = open('corpus.txt','r')
+    #f = open('corpus.txt','r')
+    f = open('corpus_linguistics.txt','r')
     text = f.read()
     text = text.lower()
     sent_tokens = nltk.sent_tokenize(text)
