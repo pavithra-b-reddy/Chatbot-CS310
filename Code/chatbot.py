@@ -10,7 +10,7 @@ from textblob import TextBlob
 
 warnings.filterwarnings('ignore') # Ignore warning messages
 
-f = open('corpus.txt', 'r') # reading the corpus
+f = open('corpus_linguistics.txt', 'r') # reading the corpus
 text = f.read()
 text = text.lower()
 sent_tokens = nltk.sent_tokenize(text)
