@@ -3,3 +3,4 @@ release-builds
 [Bb]in/
 Code/.ipynb_checkpoints
 Code/__pycache__
+Code/.idea

@@ -2,7 +2,6 @@ from tkinter import *
 from chatbot import *
 
 
-
 def chatting():
     chatWindow = Tk()
     chatWindow.geometry("500x500")
@@ -33,7 +32,8 @@ def chatting():
     chatWindow.mainloop()
 
 def interact(bot_ele, input_ele):
-    global check
+    
+    global check, choice
     print("Hello")
     response = input_ele.get()
     print(response)
@@ -80,6 +80,7 @@ mainWindow["background"] = "#5BC8AF"
 ele = Label(mainWindow, text="Welcome to the chatbot!", width=100, height=13, bg="#5BC8AF")
 ele.pack()
 check = 1
+
 
 ele = Button(text="Start Chatting",
     width=20,
