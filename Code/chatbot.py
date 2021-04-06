@@ -16,6 +16,7 @@ text = text.lower()
 sent_tokens = nltk.sent_tokenize(text)
 word_tokens = nltk.word_tokenize(text)
 
+
 user_greetings = ["hi", "hello", "good morning", "hey", "what's up"]
 bot_greetings = ["Hello, how may I be of assistance?"]
 user_gratitude = ["thank you", "thanks", "that was helpful"]
