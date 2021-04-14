@@ -32,7 +32,7 @@ def chatting():
     chatWindow.mainloop()
 
 def interact(bot_ele, input_ele):
-    
+
     global check, choice
     print("Hello")
     response = input_ele.get()
@@ -44,12 +44,12 @@ def interact(bot_ele, input_ele):
         print(choice)
         if choice == "1":
             print("hi")
-            bot_ele.insert("1.0", "I can answer any questions you may have about machine intelligence.\nType in your question. If want to exit, type bye.\n")
+            bot_ele.insert("1.0", "I can answer any questions you may have about linguistics.\nType in your question. If want to exit, type bye.\n")
             bot_ele.delete("3.0", END)
             bot_ele.delete("4.0", END)
             check += 1
         elif choice == "2":
-            bot_ele.insert("1.0", "Enter some text to be analyzed")
+            bot_ele.insert("1.0", "Enter some text to be analyzed.\n")
             bot_ele.delete("2.0", END)
             bot_ele.delete("3.0", END)
             bot_ele.delete("4.0", END)
