@@ -1,3 +1,5 @@
+# Loading the required packages
+
 import nltk
 import random
 import string
@@ -10,12 +12,19 @@ from textblob import TextBlob
 
 warnings.filterwarnings('ignore') # Ignore warning messages
 
-f = open('corpus_linguistics.txt', 'r') # reading the corpus
-text = f.read()
+f = open('corpus_linguistics.txt', 'r') # opening the corpus
+text = f.read() # reading the corpus
+
+# Change text from corpus to lower case
+
 text = text.lower()
+
+# Perform tokenization
+
 sent_tokens = nltk.sent_tokenize(text)
 word_tokens = nltk.word_tokenize(text)
 
+# Initialize set of greetings and responses
 
 user_greetings = ["hi", "hello", "good morning", "hey", "what's up"]
 bot_greetings = ["Hello, how may I be of assistance?"]
@@ -32,6 +41,7 @@ languages = {"en": "English", "fr": "French", "es": "Spanish",
 
 lemmatizer = nltk.stem.WordNetLemmatizer()
 
+# Function to perform lemmatization
 
 def LemTokens(tokens):
     return [lemmatizer.lemmatize(token) for token in tokens]
@@ -63,8 +73,7 @@ def respond(input_text):
         bot_message += sent_tokens[idx]
     return bot_message
 
-# Sentiment analysis
-
+# Perform sentiment analysis
 
 def extract_sentiment(text):
     processed_text = TextBlob(text)
@@ -76,13 +85,13 @@ def extract_sentiment(text):
     else:
         return "neutral"
 
+# Detect language
 
 def get_language(text):
     processed_text = TextBlob(text)
     return processed_text.detect_language()
 
-# Interact with chatbot framework
-
+# Interact with chatbot framework based on input from user
 
 def bot(choice, input_text):
     exit_status = False
