@@ -8,5 +8,5 @@ application can be built from scratch using the files in this repository.
 
 There are two steps involved in starting the application:
 * Navigate to the folder Chatbot-CS310 using the command `cd Chatbot-CS310/Code`.
-* If you don't have the python modules (scikit-learn, nltk, textblob, and tkinter), then make sure you install those libraries first.
+* If you don't have the python modules (`scikit-learn`, `nltk`, `textblob`, and `tkinter`), then make sure you install those libraries first.
 * Use the command `python3 gui.py` to start the chatbot application.
