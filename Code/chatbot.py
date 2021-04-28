@@ -1,3 +1,5 @@
+# This codes are referenced from the Github repo (https://github.com/parulnith/Building-a-Simple-Chatbot-in-Python-using-NLTK/blob/master/chatbot.py)
+
 # Loading the required packages
 
 import nltk
@@ -15,7 +17,7 @@ warnings.filterwarnings('ignore') # Ignore warning messages
 f = open('corpus_linguistics.txt', 'r') # opening the corpus
 text = f.read() # reading the corpus
 
-# Change text from corpus to lower case
+# Convert all text from corpus to lower case
 
 text = text.lower()
 
@@ -37,9 +39,9 @@ bot_exit_text = ["Thank you for using my services. Have a great day!",
 languages = {"en": "English", "fr": "French", "es": "Spanish",
              "la": "Latin"}
 
-# Preprocessing
+# Text Preprocessing
 
-lemmatizer = nltk.stem.WordNetLemmatizer()
+lemmatizer = nltk.stem.WordNetLemmatizer() # Text Lemmatization
 
 # Function to perform lemmatization
 
@@ -59,7 +61,7 @@ def LemNormalize(text):
 def respond(input_text):
     bot_message = ""
     sent_tokens.append(input_text)
-    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words='english')
+    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words='english') # TF-IDF approach 
     tfidf = TfidfVec.fit_transform(sent_tokens)
     vals = cosine_similarity(tfidf[-1], tfidf)
     idx = vals.argsort()[0][-2]
@@ -76,16 +78,16 @@ def respond(input_text):
 # Perform sentiment analysis
 
 def extract_sentiment(text):
-    processed_text = TextBlob(text)
+    processed_text = TextBlob(text) # Here, we use the textblob module to implement sentiment analysis
     sentiment = processed_text.sentiment
-    if sentiment.polarity < 0:
+    if sentiment.polarity < 0: # we manually set the rule for testing the mood of a sentence
         return "negative"
     elif sentiment.polarity > 0:
         return "positive"
     else:
         return "neutral"
 
-# Detect language
+# Language detection
 
 def get_language(text):
     processed_text = TextBlob(text)
@@ -96,22 +98,22 @@ def get_language(text):
 def bot(choice, input_text):
     exit_status = False
     while exit_status is False:
-        input_text = input_text.lower()
+        input_text = input_text.lower() # lowercase the input
         if input_text != 'bye':
             if choice == "1":
-                if input_text in user_greetings:
+                if input_text in user_greetings: # Generate random response from the greetings set
                     return random.choice(bot_greetings)
                 else:
-                    if input_text in user_gratitude:
+                    if input_text in user_gratitude: # Generate random response from the gratitude set
                         return random.choice(bot_gratitude)
                     else:
-                        return respond(input_text)
+                        return respond(input_text) # Generate a response using NLTK that answers the user's question
                         sent_tokens.remove(input_text)
             elif choice == "2":
-                return_string = "Detected Language: " + languages[
+                return_string = "Detected Language: " + languages[ # Language detection
                     get_language(input_text)] + "\n"
                 if get_language(input_text) == "en":
-                    return_string += "Detected Sentiment: " + extract_sentiment(
+                    return_string += "Detected Sentiment: " + extract_sentiment( # Sentiment analysis
                         input_text)
                 else:
                     return_string += "Sentiment can only be detected for " \
