@@ -11,6 +11,7 @@ def chatting():
     chatWindow.title("Chatbot")
     chatWindow["background"] = "#5BC8AF"
 
+    # Add text to the chat window
     bot_ele = Text(chatWindow, fg="black", bg="#5BC8AF", width=100, height=20, font=(16))
     bot_ele.insert("1.0", "Hi there! You are now interacting with a chatbot.\n")
     bot_ele.insert("2.0", "Enter a number based on what you want to do:\n")
@@ -24,6 +25,7 @@ def chatting():
     ele = Label(chatWindow, text="", width=100, height=3, bg="#5BC8AF")
     ele.pack()
 
+    # Create a button and add an action to it
     ele = Button(text="Send",
         width=5,
         height=2,
@@ -34,7 +36,7 @@ def chatting():
 
     chatWindow.mainloop()
 
-# Function to interact with the chatbot program
+# Function to interact with the chatbot program based on the choice of the user
 
 def interact(bot_ele, input_ele):
 
@@ -43,6 +45,7 @@ def interact(bot_ele, input_ele):
     response = input_ele.get()
     print(response)
     print(check)
+    # Check if this is the user's first input
     if check == 1:
         print(response)
         choice = response
@@ -72,11 +75,13 @@ def interact(bot_ele, input_ele):
 
     input_ele.delete(0, END)
 
+# Close the first window that opened
 
 def closeWindow():
     mainWindow.destroy()
     chatting()
 
+# Create the main window (first window the user sees)
 
 mainWindow = Tk()
 mainWindow.geometry("500x500")
@@ -86,7 +91,7 @@ ele = Label(mainWindow, text="Welcome to the chatbot!", width=100, height=13, bg
 ele.pack()
 check = 1
 
-
+# Create a button to begin chatting and attach an action to it
 ele = Button(text="Start Chatting",
     width=20,
     height=2,
