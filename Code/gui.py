@@ -1,6 +1,9 @@
+# Loading the required packages
+
 from tkinter import *
 from chatbot import *
 
+# Function to create the chat window and chat with the user
 
 def chatting():
     chatWindow = Tk()
@@ -30,6 +33,8 @@ def chatting():
     ele.pack()
 
     chatWindow.mainloop()
+
+# Function to interact with the chatbot program
 
 def interact(bot_ele, input_ele):
 

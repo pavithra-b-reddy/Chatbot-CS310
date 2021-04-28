@@ -1,3 +1,6 @@
+# The code for this chatbot was insipred by the code provided at:
+# https://medium.com/analytics-vidhya/building-a-simple-chatbot-in-python-using-nltk-7c8c8215ac6e
+
 # Loading the required packages
 
 import nltk
@@ -49,6 +52,7 @@ def LemTokens(tokens):
 
 remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
 
+# Function to perform normalization
 
 def LemNormalize(text):
     return LemTokens(
