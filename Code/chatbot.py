@@ -110,11 +110,11 @@ def bot(choice, input_text):
                         return respond(input_text) # Generate a response using NLTK that answers the user's question
                         sent_tokens.remove(input_text)
             elif choice == "2":
-                return_string = "Detected Language: " + languages[ # Language detection
-                    get_language(input_text)] + "\n"
+                return_string = "Detected Language: " + languages[ 
+                    get_language(input_text)] + "\n" # Language detection
                 if get_language(input_text) == "en":
-                    return_string += "Detected Sentiment: " + extract_sentiment( # Sentiment analysis
-                        input_text)
+                    return_string += "Detected Sentiment: " + extract_sentiment( 
+                        input_text) # Sentiment analysis
                 else:
                     return_string += "Sentiment can only be detected for " \
                                      "text in English "
